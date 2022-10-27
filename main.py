@@ -40,8 +40,9 @@ def printMessage():
 @app.post("/register", status_code=200, response_model=UserModels.ResponseModel)
 def register(user: UserModels.RequestModel, db:Session=Depends(get_db)):
     createdUser = user_script.createUser(user, db)
+    loggedInUser = user_script.login(user, db)
 
-    return createdUser
+    return loggedInUser
 
 
 
