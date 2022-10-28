@@ -61,7 +61,6 @@ def login(user: UserModels.LoginRequestModel, db:Session=Depends(get_db)):
     return loggedInUser
 
 
-
 # add new project
 @app.post("/add_new_project", status_code=200, response_model=ProjectModels.ResponseModel)
 def addNew(project: ProjectModels.RequestModel, db: Session = Depends(get_db)):
